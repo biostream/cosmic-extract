@@ -9,17 +9,14 @@ class: CommandLineTool
 hints:
   DockerRequirement:
     dockerPull: cosmic-extract:latest
-baseCommand: make-all.sh
+baseCommand: /g2p-aggregator/harvester/make-all.sh
 inputs:
-  /g2p-aggregator/harvester/CosmicMutantExport.tsv.gz:
+  COSMIC:
     type: File
+    inputBinding:
+      position: 1
 outputs:
   output:
     type: Directory
-volumes:
- - name: output
-   hostPath: /tmp/cosmic
-   swiftPath: $OS_STORAGE_URL/etl-development/cosmic
- - name: /g2p-aggregator/harvester/CosmicMutantExport.tsv.gz
-   hostPath: ~/g2p-aggregator/harvester/CosmicMutantExport.tsv.gz
-   swiftPath: $OS_STORAGE_URL/etl-development/cosmic/CosmicMutantExport.tsv.gz
+    outputBinding:
+      glob: output

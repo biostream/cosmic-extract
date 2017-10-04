@@ -20,9 +20,6 @@ VOLUME ["/output"]
 COPY ./make-all.sh /g2p-aggregator/harvester
 
 
-# run it
-ENTRYPOINT ["./make-all.sh"]
-
 
 # documentation
 LABEL maintainer="walsbr@ohsu.edu" \
