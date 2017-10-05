@@ -40,6 +40,11 @@ $ docker inspect cosmic-extract    | jq -r '.[0].Config.Labels'
 $ swift upload --object-name cosmic etl-development /tmp/cosmic
 ```
 
+### Example CWL invocation
+```
+cwltool cosmic-extract.cwl test.json
+```
+
 ### known consumers
 
 * g2p-transform https://github.com/biostream/g2p-transform
